@@ -7,20 +7,47 @@
  * - Test the method by sending new values and checking the properties in the console.
  */
 
-const backpack = {
-  name: "Everyday Backpack",
-  volume: 30,
-  color: "grey",
-  pocketNum: 15,
-  strapLength: {
-    left: 26,
-    right: 26,
+const stepperMotor = {
+  name: "Stepper Motor",
+  voltage: 5,
+  current: "DC",
+  modelNum: "28BYJ-48",
+  brand: "ROHS",
+};
+
+const servoMotor = {
+  name: "Servo Motor",
+  voltage: 6,
+  current: "DC",
+  modelNum: "MG90",
+  torque: 2.2,
+  brand: "ROHS",
+};
+
+const DCMotor = {
+  name: "DC Motor",
+  voltage: 3,
+  current: "DC",
+};
+
+const box = {
+  name: "ArduinoBox",
+  compartments: 3,
+  color: "white",
+  material: "plastic",
+  compartment_1: {
+    numItems: 3,
+    motors: [stepperMotor, servoMotor, DCMotor],
   },
-  toggleLid: function (lidStatus) {
-    this.lidOpen = lidStatus;
+  lidOpen: "true",
+  toggleLid: function (LidStatus) {
+    this.lidOpen = LidStatus;
   },
-  newStrapLength: function (lengthLeft, lengthRight) {
-    this.strapLength.left = lengthLeft;
-    this.strapLength.right = lengthRight;
+  addMotor: function (motorType) {
+    const motor = motorType;
+    this.compartment_1.motors.push(motor);
+    box.compartment_1.numItems += 1;
+    console.log(box.compartment_1.motors);
+    console.log(box.compartment_1.numItems);
   },
 };

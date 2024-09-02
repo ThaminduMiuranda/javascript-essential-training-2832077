@@ -51,3 +51,5 @@ const content = `
 `;
 
 main.innerHTML = content;
+
+//add,remove,toggle or replace classes always use classList property and methods that come with it
