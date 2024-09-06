@@ -57,18 +57,25 @@ main.append(newArticle);
 const usedStatus = () => {
   let age = everydayPack.backpackAge();
   let description;
-  if (age >= 30) {
-    if (age >= 365) {
-      if (age >= 1095) {
-        description = "old";
-      } else {
-        description = "used";
-      }
-    } else {
-      description = "lightly used";
-    }
-  } else {
-    description = "new";
+  let newlyBought = 30;
+  let lightlyUsed = 365;
+  let used = 1095;
+
+  switch (true) {
+    case age <= newlyBought:
+      description = "This backpack is brand new!";
+      break;
+    case age <= newlyBought && age < lightlyUsed:
+      description = "This backpack has been used lightly.";
+      break;
+    case age <= lightlyUsed && age < used:
+      description = "This backpack has been used.";
+      break;
+    case age >= used:
+      description = "This backpack is old.";
+      break;
+    default:
+      console.log("This is a default case");
   }
 
   console.log(`
@@ -77,4 +84,4 @@ const usedStatus = () => {
   `);
 };
 
-usedStatus()
+usedStatus();
