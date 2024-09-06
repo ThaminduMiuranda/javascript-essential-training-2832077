@@ -57,3 +57,28 @@ const content = `
       }</span></li>
     </ul>  
 `;
+
+const main = (object) => {
+  const article = document.createElement("article");
+  document.querySelector("main").appendChild(article);
+  article.innerHTML = content;
+
+  const figureFunction = (object) => {
+    let newFigure = document.createElement("figure");
+    let newImage = document.createElement("img");
+    let newCaption = document.createElement("figcaption");
+
+    newImage.setAttribute("src", object.image);
+    newImage.setAttribute("alt", object.name);
+    newCaption.textContent = object.description;
+
+    newFigure.appendChild(newImage);
+    newFigure.appendChild(newCaption);
+
+    return newFigure;
+  };
+
+  article.appendChild(figureFunction(object));
+};
+
+console.log(main(frogpack));
