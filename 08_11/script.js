@@ -41,7 +41,7 @@ const content = `
       everydayPack.strapLength.right
     } inches</span></li>
     <li class="feature backpack__lid">Lid status:<span> ${
-      everydayPack.lidOpen
+      everydayPack.lidOpen ? "open" : "closed"
     }</span></li>
   </ul>
 `;
@@ -54,3 +54,13 @@ newArticle.setAttribute("id", "everyday");
 newArticle.innerHTML = content;
 
 main.append(newArticle);
+
+const lidStatus = document.querySelector(".backpack__lid span");
+
+// if (everydayPack.lidOpen === true) {
+//   console.log("The lid is open.");
+//   lidStatus.innerHTML = "open";
+// } else {
+//   console.log("The lid is closed.");
+//   lidStatus.innerHTML = "closed";
+// }
