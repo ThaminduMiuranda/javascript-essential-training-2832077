@@ -10,6 +10,15 @@ const greenPack = {
   pocketNum: 3,
 };
 
+const packArr = [
+  { name: "Frog Pack", color: "green", volume: 8, pocketNum: 3 },
+  { name: "Frog Pack", color: "green", volume: 8, pocketNum: 3 },
+  { name: "Frog Pack", color: "green", volume: 8, pocketNum: 3 },
+  { name: "Frog Pack", color: "green", volume: 8, pocketNum: 3 },
+  { name: "Frog Pack", color: "green", volume: 8, pocketNum: 3 },
+  { name: "Frog Pack", color: "green", volume: 8, pocketNum: 3 },
+];
+
 const addPack = function (currentPack) {
   const newArticle = document.createElement("article");
   newArticle.innerHTML = `
@@ -24,4 +33,7 @@ const addPack = function (currentPack) {
 };
 
 const main = document.querySelector("main");
-main.append(addPack(greenPack));
+
+packArr.forEach(() => {
+  main.append(addPack(greenPack));
+});

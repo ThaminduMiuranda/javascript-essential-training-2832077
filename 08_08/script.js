@@ -8,15 +8,24 @@
  * @link http://www.lingoes.net/en/translator/langcode.htm
  */
 
-const tipCalculator = (sum, percentage) => {
+const formatter = (locale, curency, value) => {
+  let formattedValue = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: curency,
+  }).format(value);
+
+  return formattedValue;
+};
+
+const tipCalculator = (locale, curency, sum, percentage) => {
   let tip = sum * (percentage / 100);
   let total = sum + tip;
   console.log(`
-      Sum before tip: ${sum}
+      Sum before tip: ${formatter(locale, curency, sum)}
       Tip percentage: ${percentage}%
-      Tip:            ${tip.toFixed(2)}
-      Total:          ${total.toFixed(2)}
+      Tip:            ${formatter(locale, curency, tip.toFixed(2))}
+      Total:          ${formatter(locale, curency, total.toFixed(2))}
     `);
 };
 
-tipCalculator(29.95, 18);
+tipCalculator("en-LK", "LKR", 29.95, 18);
