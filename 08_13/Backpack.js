@@ -38,4 +38,10 @@ class Backpack {
   }
 }
 
+for (const key in Backpack) {
+  if (Backpack.prototype.hasOwnProperty.call(Backpack, key)) {
+    const element = Backpack[key];
+  }
+}
+
 export default Backpack;
